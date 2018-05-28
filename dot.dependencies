@@ -1,0 +1,23 @@
+[
+  {
+    "repository": "LineageOS/android_device_qcom_common",
+    "target_path": "device/qcom/common",
+	  "branch" : "lineage-15.1"
+  },
+  {
+    "repository": "LineageOS/android_kernel_samsung_msm8976",
+    "target_path": "kernel/samsung/msm8976",
+	  "branch" : "lineage-15.1"
+  },
+  {
+    "repository": "LineageOS/android_hardware_samsung",
+    "target_path": "hardware/samsung",
+	  "branch" : "lineage-15.1"
+  },
+  {
+    "repository": "LineageOS/android_hardware_sony_timekeep",
+    "target_path": "hardware/sony/timekeep",
+	  "branch" : "lineage-15.1"
+  }
+]
+		
