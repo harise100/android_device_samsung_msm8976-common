@@ -22,6 +22,8 @@
 /sys/devices/virtual/mdnie/mdnie/mode                           u:object_r:sysfs_mdnie:s0
 /sys/devices/virtual/mdnie/mdnie/scenario                       u:object_r:sysfs_mdnie:s0
 
+# Perfd
+/system/vendor/bin/perfd                                        u:object_r:perfd_exec:s0
 # SEC
 /sys/devices/virtual/sec/sec_key(/.*)?                          u:object_r:sysfs_sec_key:s0
 
