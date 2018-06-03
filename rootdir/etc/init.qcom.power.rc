@@ -20,7 +20,10 @@ on boot
     # Enable sched boost
     write /proc/sys/kernel/sched_boost 1
 
-on enable-low-power
+on post-fs-data
+    trigger enable-low-power
+    
+ on enable-low-power
     # HMP scheduler (big.Little cluster related) settings
     write /proc/sys/kernel/sched_upmigrate 95
     write /proc/sys/kernel/sched_downmigrate 85
