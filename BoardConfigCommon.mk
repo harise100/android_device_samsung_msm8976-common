@@ -33,7 +33,7 @@ TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
@@ -59,7 +59,7 @@ BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8976
 
 # ANT+
-BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
 
 # Audio
 AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
@@ -212,7 +212,10 @@ include device/qcom/sepolicy/legacy-sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Shims
-TARGET_LD_SHIM_LIBS := /system/lib/libcamera_client.so|libcamera_parameters_shim.so:/system/vendor/lib64/libizat_core.so|libshims_get_process_name.so:/system/lib64/libsec-ril.so|libshims_rild_socket.so
+TARGET_LD_SHIM_LIBS := \
+    /system/lib/hw/camera.vendor.msm8952.so|libshims_camera.so \
+    /system/lib64/libsec-ril.so|libshims_rild_socket.so \
+    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
