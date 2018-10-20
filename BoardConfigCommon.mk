@@ -101,8 +101,13 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
 QCOM_BT_USE_SMD_TTY := true
 
+# Board
+TARGET_BOARD_INFO_FILE := $(VENDOR_PATH)/board-info.txt
+
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
+    /system/vendor/bin/hw/android.hardware.camera.provider@2.4-service=24
 TARGET_USES_MEDIA_EXTENSIONS := true
 
 # Charger
@@ -122,6 +127,7 @@ WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
 BOARD_USES_ADRENO := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
+TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_ION := true
@@ -170,15 +176,15 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_PROVIDES_KEYMASTER := true
 
 # Lineage hardware
-BOARD_HARDWARE_CLASS += \
-    hardware/samsung/lineagehw \
-    $(VENDOR_PATH)/lineagehw
+JAVA_SOURCE_OVERLAYS := \
+    org.lineageos.hardware|hardware/samsung/lineagehw|**/*.java \
+    org.lineageos.hardware|$(VENDOR_PATH)/lineagehw|**/*.java
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
 # Power
-TARGET_HAS_NO_WIFI_STATS := true
+TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
 # Properties
@@ -204,6 +210,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Release tools
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_samsung
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 
 # SELinux

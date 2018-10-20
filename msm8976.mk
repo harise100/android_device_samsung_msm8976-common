@@ -237,7 +237,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service-qti
+    android.hardware.power@1.1-service-qti
 
 # Qualcomm dependencies
 PRODUCT_PACKAGES += \
@@ -253,6 +253,10 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     ueventd.qcom.rc
+
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_samsung
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -278,7 +282,7 @@ PRODUCT_PACKAGES += \
 
 # USB HAL
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
+    android.hardware.usb@1.0-service.basic
 
 # WCNSS
 PRODUCT_COPY_FILES += \
